@@ -9,11 +9,12 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class NotesActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var notesDao: NotesDao
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes)
     }
+
 }

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Fibe Notes</string>
+    <string name="note_title">Note title</string>
+    <string name="note_description">Note description</string>
+    <string name="add_note">Add Note</string>
+    <string name="you_haven_t_added_any_nnotes_yet">You haven\'t added any \nNotes yet</string>
 </resources>
