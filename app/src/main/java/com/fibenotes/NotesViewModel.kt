@@ -51,6 +51,7 @@ class NotesViewModel @Inject constructor(
         }
         if (TextUtils.isEmpty(note.description)) {
             validationListener?.onFailure(R.string.please_enter_description_of_note)
+            return
         }
         validationListener?.onSuccess()
     }
