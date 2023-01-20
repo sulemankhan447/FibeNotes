@@ -8,9 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.fibenotes.NoteAdapter
+import com.fibenotes.adapter.NoteAdapter
 import com.fibenotes.NotesViewModel
 import com.fibenotes.R
+import com.fibenotes.database.Note
 import com.fibenotes.databinding.FragmentNotesListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +21,7 @@ class NotesListFragment : Fragment() {
 
     private lateinit var binding: FragmentNotesListBinding
 
-    private lateinit var adapter:NoteAdapter
+    private lateinit var adapter: NoteAdapter
 
     private val notesViewModel: NotesViewModel by activityViewModels()
 
@@ -44,22 +45,28 @@ class NotesListFragment : Fragment() {
     }
 
     private fun setUpAdapter() {
-        adapter = NoteAdapter()
+        adapter = NoteAdapter(::onNoteClicked)
         binding.recyclerNotes.adapter = adapter
     }
 
     private fun setUpObserver() {
         notesViewModel.notesLiveData.observe(viewLifecycleOwner) { noteList ->
-            if(noteList.isEmpty()){
+            if (noteList.isEmpty()) {
                 binding.grpNoNote.visibility = View.VISIBLE
-            }
-            else{
+                binding.recyclerNotes.visibility = View.GONE
+            } else {
                 binding.grpNoNote.visibility = View.GONE
                 binding.recyclerNotes.visibility = View.VISIBLE
                 adapter.submitList(noteList)
             }
         }
 
+    }
+
+    private fun onNoteClicked(note: Note) {
+        val bundle = Bundle()
+        bundle.putParcelable(AddEditNoteFragment.NOTE_MODEL, note)
+        findNavController().navigate(R.id.action_notesListFragment_to_addEditNoteFragment,bundle)
     }
 
     private fun setUpListener() {

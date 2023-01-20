@@ -38,6 +38,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNoteDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp20"
@@ -53,6 +54,18 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@drawable/btn_submit"
+            android:gravity="center"
+            android:padding="@dimen/dp12"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/tilNoteDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,4 +4,9 @@
     <string name="note_description">Note description</string>
     <string name="add_note">Add Note</string>
     <string name="you_haven_t_added_any_nnotes_yet">You haven\'t added any \nNotes yet</string>
+    <string name="please_enter_title_of_note">Please enter title of note</string>
+    <string name="please_enter_description_of_note">Please enter description of note</string>
+    <string name="failed_to_create_note">Failed to create note.</string>
+    <string name="edit_note">Edit Note</string>
+    <string name="submit">Submit</string>
 </resources>

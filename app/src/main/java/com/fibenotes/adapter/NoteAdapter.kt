@@ -1,4 +1,4 @@
-package com.fibenotes
+package com.fibenotes.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fibenotes.database.Note
 import com.fibenotes.databinding.ItemNoteBinding
 
-class NoteAdapter() : ListAdapter<Note, NoteAdapter.NoteViewHolder>(ComparatorDiffUtil()) {
+class NoteAdapter(private val onNoteClicked: (Note) -> Unit) :
+    ListAdapter<Note, NoteAdapter.NoteViewHolder>(ComparatorDiffUtil()) {
 
 
     inner class NoteViewHolder(private val binding: ItemNoteBinding) :
@@ -16,6 +17,9 @@ class NoteAdapter() : ListAdapter<Note, NoteAdapter.NoteViewHolder>(ComparatorDi
         fun bind(note: Note) {
             binding.tvNoteTitle.text = note.title
             binding.tvNoteDescription.text = note.description
+            binding.root.setOnClickListener {
+                onNoteClicked(note)
+            }
         }
     }
 

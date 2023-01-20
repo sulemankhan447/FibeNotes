@@ -1,4 +1,4 @@
-package com.fibenotes
+package com.fibenotes.base
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
