@@ -25,7 +25,6 @@ class AddEditNoteFragment : Fragment(), ValidationListener {
         const val NOTE_MODEL = "NOTE_MODEL"
     }
 
-    var isAddNote: Boolean = true
 
     lateinit var binding: FragmentAddEditNoteBinding
 
