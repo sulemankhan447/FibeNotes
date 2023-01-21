@@ -65,7 +65,10 @@ class AddEditNoteFragment : Fragment(), ValidationListener {
             binding.edtNoteTitle.text = Editable.Factory.getInstance().newEditable(noteModel?.title)
             binding.edtNoteDescription.text =
                 Editable.Factory.getInstance().newEditable(noteModel?.description)
+            binding.toolbar.ivDeleteNote.visibility = View.VISIBLE
+
         } else {
+            binding.toolbar.ivDeleteNote.visibility = View.GONE
             binding.toolbar.toolbar.title = getString(R.string.add_note)
         }
     }
